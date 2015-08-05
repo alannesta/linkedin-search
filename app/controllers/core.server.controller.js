@@ -9,3 +9,7 @@ exports.index = function(req, res) {
 		request: req
 	});
 };
+
+exports.search = function(req, res) {
+	// TODO: db query
+};
