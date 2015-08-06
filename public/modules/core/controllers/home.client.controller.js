@@ -1,13 +1,14 @@
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'api',
-	function($scope, Authentication, api) {
+angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Api',
+	function($scope, Authentication, Api) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
 
 		$scope.crawl = function() {
-			api.search();
+			console.log('crawl');
+			Api.search();
 		}
 	}
 ]);

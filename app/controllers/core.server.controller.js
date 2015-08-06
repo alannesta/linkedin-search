@@ -28,21 +28,21 @@ exports.crawl = function(req, res) {
 	var options = {
 		hostname: 'api.linkedin.com',
 		port: 80,
-		path: url,
+		path: '',
 		method: 'GET',
 		headers: {
 			Authorization: accessToken
 		}
 	};
 
-	var req = http.request(options, function(res) {
-		res.setEncoding('utf8');
-		res.on('data', function (chunk) {
+	var request = http.request(options, function(response) {
+		response.setEncoding('utf8');
+		response.on('data', function (chunk) {
 			console.log('BODY: ' + chunk);
 		});
 	});
 
-	req.on('error', function(e) {
+	request.on('error', function(e) {
 		console.log('problem with request: ' + e.message);
 	});
 };
