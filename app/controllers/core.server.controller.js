@@ -49,3 +49,13 @@ exports.crawl = function(req, res) {
 	//	console.log('problem with request: ' + e.message);
 	//});
 };
+
+exports.facebookShare = function(req) {
+	//console.log(req);
+	var accessToken;
+	User.findOne({provider: 'facebook'}, 'providerData', function(err, result) {
+		if (err) console.log('err: ' + err);
+		accessToken = result.providerData.accessToken;
+		console.log('token: ' + accessToken);
+	});
+};

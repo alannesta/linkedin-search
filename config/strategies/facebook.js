@@ -20,7 +20,7 @@ module.exports = function() {
 			// Set the provider data and include tokens
 			var providerData = profile._json;
 			providerData.accessToken = accessToken;
-			providerData.refreshToken = refreshToken;
+			providerData.refreshToken = refreshToken;	// undefined here, facebook dose not have refresh token
 
 			// Create the user OAuth profile
 			var providerUserProfile = {

@@ -8,4 +8,12 @@ angular.module('core').service('Api', ['$http', function($http) {
 			return result;
 		});
 	}
+
+	self.share = function(payload) {
+		$http.post('http://localhost:3000/share', {
+			data: payload
+		}).then(function (result) {
+			return result;
+		});
+	}
 }]);

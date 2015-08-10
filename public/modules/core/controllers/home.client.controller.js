@@ -9,6 +9,11 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		$scope.crawl = function() {
 			console.log('crawl');
 			Api.search();
+		};
+
+		$scope.share = function() {
+			console.log('share');
+			Api.share();
 		}
 	}
 ]);

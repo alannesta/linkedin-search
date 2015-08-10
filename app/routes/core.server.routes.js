@@ -6,4 +6,5 @@ module.exports = function(app) {
 	app.route('/').get(core.index);
 
 	app.route('/search').get(core.crawl);
+	app.route('/share').post(core.facebookShare);
 };
