@@ -7,7 +7,7 @@ angular.module('core').service('Api', ['$http', function($http) {
 		$http.get('http://localhost:3000/search').then(function (result) {
 			return result;
 		});
-	}
+	};
 
 	self.share = function(payload) {
 		$http.post('http://localhost:3000/share', {

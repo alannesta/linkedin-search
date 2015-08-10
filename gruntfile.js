@@ -173,10 +173,10 @@ module.exports = function(grunt) {
 	});
 
 	// Default task(s).
-	grunt.registerTask('default', ['lint', 'copy:localConfig', 'concurrent:default']);
+	grunt.registerTask('default', ['copy:localConfig', 'concurrent:default']);
 
 	// Debug task.
-	grunt.registerTask('debug', ['lint', 'copy:localConfig', 'concurrent:debug']);
+	grunt.registerTask('debug', ['copy:localConfig', 'concurrent:debug']);
 
 	// Secure task(s).
 	grunt.registerTask('secure', ['env:secure', 'lint', 'copy:localConfig', 'concurrent:default']);

@@ -13,7 +13,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 
 		$scope.share = function() {
 			console.log('share');
-			Api.share();
+			Api.share('Open graph stories');
 		}
 	}
 ]);
