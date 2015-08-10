@@ -53,21 +53,24 @@ exports.crawl = function(req, res) {
 	//});
 };
 
-exports.facebookShare = function(req) {
+exports.facebookShare = function(req, res) {
 	//console.log(req);
 	var accessToken, userId, message;
 	User.findOne({provider: 'facebook'}, 'providerData', function(err, result) {
 		if (err) console.log('err: ' + err);
 		accessToken = result.providerData.accessToken;
 		userId = result.providerData.id;
-		message = 'Open graph stories';
+		message = 'OG Story';
 		console.log('token: ' + userId);
 
 		var options = {
 			hostname: facebookBase,
 			port: 443,
-			path: '/' + userId + '/feed?message=' + message + '&access_token=' + accessToken,
+			path: '/' + userId + '/feed?message=' + encodeURIComponent(message) + '&access_token=' + accessToken,
 			method: 'POST'
+			//headers: {
+			//	'Content-Type': 'application/x-www-form-urlencoded'		// not mandatory
+			//}
 		};
 
 		var request = https.request(options, function(response) {
@@ -75,13 +78,14 @@ exports.facebookShare = function(req) {
 			response.on('data', function(chunk) {
 				console.log('BODY: ' + chunk);
 			});
+			res.send('ok');
 		});
 
 		request.on('error', function(e) {
 			console.log('problem with request: ' + e.message);
 		});
 
-		request.write('start');
+		request.write('');
 		request.end();
 
 	});
