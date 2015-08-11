@@ -42,5 +42,11 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 			});
 		};
 
+		$scope.FBtestToken = function() {
+			FB.api('/me', function(response) {
+				console.log(JSON.stringify(response));
+			});
+		}
+
 	}
 ]);
