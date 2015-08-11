@@ -2,6 +2,7 @@
 
 var http = require('http');
 var https = require('https');
+var dev_config = require('../../config/env/development');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
@@ -10,7 +11,8 @@ var facebookBase = 'graph.facebook.com';
 exports.index = function(req, res) {
 	res.render('index', {
 		user: req.user || null,
-		request: req
+		request: req,
+		facebookAppId: dev_config.facebook.clientID
 	});
 };
 
