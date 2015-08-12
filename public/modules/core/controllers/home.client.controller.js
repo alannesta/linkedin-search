@@ -43,10 +43,16 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		};
 
 		$scope.FBtestToken = function() {
-			FB.api('/me', function(response) {
-				console.log(JSON.stringify(response));
+			FB.getLoginStatus(function(response) {
+				if (response.status === 'connected') {
+					console.log('already logged in ');
+					FB.api('/me', function(response) {
+						console.log(JSON.stringify(response));
+					});
+				} else {
+					console.log('not logged in');
+				}
 			});
 		}
-
 	}
 ]);
